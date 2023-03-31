@@ -17,9 +17,7 @@ export default{
 
 <template>
     <div>
-        <AppMovie v-for=" card in store.cardsMovie">
-            {{ movie.title }}
-        </AppMovie>
+        <AppMovie></AppMovie>
     </div>
 </template>
 

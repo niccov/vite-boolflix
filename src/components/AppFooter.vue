@@ -10,7 +10,7 @@ export default{
 </script>
 
 <template>
-    <div>Niccolò</div>
+    <div></div>
 </template>
 
 <style lang="scss" scoped></style>
