@@ -18,7 +18,7 @@ export default {
 <template>
     <div id="card-movie">
         <div id="container-img">
-            
+           
         </div>
     </div>
 </template>

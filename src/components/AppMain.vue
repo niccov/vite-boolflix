@@ -1,10 +1,11 @@
 <script>
 
+import {store} from "../store.js"
 import AppMovie from "../components/AppMovie.vue"
 export default{
     data() {
         return {
-
+            store,
         }
     },
 
@@ -16,7 +17,9 @@ export default{
 
 <template>
     <div>
-        <AppMovie></AppMovie>
+        <AppMovie v-for=" card in store.cardsMovie">
+            {{ movie.title }}
+        </AppMovie>
     </div>
 </template>
 
