@@ -20,7 +20,7 @@ import Footer from "./components/AppFooter.vue"
 </script>
 
 <template>
-  <div>
+  <div id="container">
     <Header></Header>
 
     <Main></Main>

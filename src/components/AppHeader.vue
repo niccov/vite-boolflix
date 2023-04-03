@@ -21,15 +21,35 @@ export default{
     },
 
     methods: {
-        search() {
-            let apiNewString = this.store.APIcall + this.store.APIquery + this.store.movieName;
+        searchMovie() {
+            this.moviePath = "/search/movie";
 
-            axios.get(apiNewString).then((res) => {
+            let apiNewStringMovie = this.store.APIcall +this.moviePath + this.store.APIkey + this.store.APIquery + this.store.nameSearched;
+
+            axios.get(apiNewStringMovie).then((res) => {
                 console.log(res.data.results);
 
                 this.store.cardsMovie = res.data.results;
 
             })
+        },
+
+        searchSeries() {
+            this.seriesPath = "/search/tv";
+
+            let apiNewStringSeries = this.store.APIcall +this.seriesPath + this.store.APIkey + this.store.APIquery + this.store.nameSearched;
+
+            axios.get(apiNewStringSeries).then((res) => {
+                console.log(res.data.results);
+
+                this.store.cardsSeries = res.data.results;
+
+            })
+        },
+
+        search() {
+            this.searchMovie();
+            this.searchSeries();
         }
     }
 }
@@ -38,7 +58,7 @@ export default{
 <template>
     <div id="container-header">
         <div id="container-logo">
-            <h1>LOGO</h1>
+            <h1>BOOLFLIX</h1>
         </div>
 
         <AppSearch @searchMovieName="search()"></AppSearch>  
@@ -48,7 +68,7 @@ export default{
 <style lang="scss" scoped>
 #container-header {
     width: 100%;
-    height: 80px;
+    // height: 80px;
 
     background-color: black;
 
@@ -57,7 +77,8 @@ export default{
     justify-content: space-around;
 
     #container-logo {
-        color: white;
+        color: rgb(218, 7, 7);
+        font-size: 22px;
     }
 
 }

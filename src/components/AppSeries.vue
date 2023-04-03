@@ -3,39 +3,35 @@
 import {store} from "../store.js"
 
 export default {
-    name: "AppMovie",
+    name: "AppSeries",
     data() {
         return{
             store,
-
-            flagItem: "",
-
-            
         }
     },
 
     props: {
-      card: Object,
+        card: Object,
     },
 
     computed: {
 
-        flag() {
-        if(this.card.original_language == "en") {
-            return "gb";
-        } else if (this.card.original_language == "ja") {
-            return "jp";
-        } else if (this.card.original_language == "zh") {
-            return "cn";
-        } else if  (this.card.original_language == "ko") {
-            return "kr";
-        } else if  (this.card.original_language == "uk") {
+      flag() {
+      if(this.card.original_language == "en") {
+           return "gb";
+       } else if (this.card.original_language == "ja") {
+           return "jp";
+       } else if (this.card.original_language == "zh") {
+           return "cn";
+       } else if  (this.card.original_language == "ko") {
+           return "kr";
+       } else if  (this.card.original_language == "uk") {
            return "ua";
-        } else if  (this.card.original_language == "da") {
+       } else if  (this.card.original_language == "da") {
            return "dk";
-        } else if  (this.card.original_language == "el") {
+       } else if  (this.card.original_language == "el") {
            return "gr";
-        } else if  (this.card.original_language == "hi") {
+       } else if  (this.card.original_language == "hi") {
            return "in";
        }         
         return this.card.original_language;
@@ -45,25 +41,21 @@ export default {
         let starVote = (Math.floor(this.card.vote_average / 2));
         return starVote;
       },
-
-
     },
-
-    
 }
 </script>
 
 <template>
-    <div class="card-movie">
+     <div class="card-series">
         <div class="container-img" >
             <img :src="`${this.store.thumb + card.poster_path}`" alt="">
         </div>
 
         <div class="info">
 
-           <div>Titolo: <b>{{ card.title }}</b></div>
+           <div>Titolo: <b>{{ card.name }}</b></div>
 
-           <div>Titolo originale: <b>{{  card.original_title }}</b></div>
+           <div>Titolo originale: <b>{{  card.original_name }}</b></div>
 
            <div>Lingua originale: <b>{{ card.original_language }}</b><span :class="'fi fi-' + flag"></span></div>
 
@@ -73,13 +65,14 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card-movie{
+
+.card-series{
     position: relative;
 
     &:hover .info{
         display: block;
-    } 
-
+    }
+    
     .container-img{
         height: 300px;
 
@@ -103,5 +96,4 @@ export default {
         background-color: rgba(0, 0, 0, 0.85);
     }
 }
-
 </style>

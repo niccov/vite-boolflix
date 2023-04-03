@@ -14,7 +14,7 @@ export default{
 
 <template>
     <div id="search-bar">
-        <input v-model="store.movieName" type="text">
+        <input v-model="store.nameSearched" type="text">
         <button @click="$emit('searchMovieName')">Cerca</button>
     </div>
 </template>
