@@ -9,4 +9,6 @@ export const store = reactive({
     movieName: "",
 
     cardsMovie: [],
+
+    thumb: 'https://image.tmdb.org/t/p/w200',
 });

@@ -11,14 +11,26 @@ export default{
 
     components: {
         AppMovie,
-    }
+    },
+
+
 }
 </script>
 
 <template>
-    <div>
-        <AppMovie></AppMovie>
+    <div id="container-main">
+        <AppMovie v-for=" card in store.cardsMovie" :card="card"></AppMovie>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+#container-main {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 20px;
+}
+</style>
