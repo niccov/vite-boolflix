@@ -3,16 +3,22 @@
 import {store} from "../store.js"
 import AppMovie from "../components/AppMovie.vue"
 import AppSeries from "../components/AppSeries.vue"
+import AppHomeMovie from "../components/AppHomeMovie.vue"
+import AppHomeSeries from "../components/AppHomeSeries.vue"
+
 export default{
     data() {
         return {
             store,
+            
         }
     },
 
     components: {
         AppMovie,
-        AppSeries
+        AppSeries,
+        AppHomeMovie,
+        AppHomeSeries,
     },
 
 
@@ -21,13 +27,17 @@ export default{
 
 <template>
     <div id="container-main">
-        <h2>FILM</h2>
+        <h2 v-if="store.showHome">FILM POPOLARI</h2>
+        <h2 v-else="store.showHome">FILM</h2>
         <div id="container-movie">
-           <AppMovie v-for=" card in store.cardsMovie" :card="card"></AppMovie>
+            <AppHomeMovie v-for=" movie in store.popularMovies" v-show="store.showHome" :card="movie"></AppHomeMovie>
+            <AppMovie v-for=" card in store.cardsMovie" :card="card"></AppMovie>
         </div>   
 
-        <h2>SERIES</h2>
+        <h2 v-if="store.showHome">SERIE TV POPOLARI</h2>
+        <h2 v-else="store.showHome">SERIE TV</h2>
         <div id="container-series">
+            <AppHomeSeries v-for=" serie in store.popularSeries" v-show="store.showHome" :card="serie"></AppHomeSeries>
             <AppSeries v-for="card in store.cardsSeries" :card="card"></AppSeries>
         </div>
     </div>

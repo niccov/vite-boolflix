@@ -3,15 +3,15 @@
 import {store} from "../store.js"
 
 export default {
-    name: "AppMovie",
+    name: "AppHomeMovie",
     data() {
-        return{
+        return {
             store,
         }
     },
 
     props: {
-      card: Object,
+        card: Object,
     },
 
     computed: {
@@ -33,7 +33,7 @@ export default {
            return "gr";
         } else if  (this.card.original_language == "hi") {
            return "in";
-       }         
+       }
         return this.card.original_language;
       },
 
@@ -45,8 +45,9 @@ export default {
 
     },
 
-    
+
 }
+
 </script>
 
 <template>
@@ -63,18 +64,19 @@ export default {
 
            <div>Lingua originale: <b>{{ card.original_language }}</b><span :class="'fi fi-' + flag"></span></div>
 
-           <div>Voto: <i v-for="star in star " class="fa-solid fa-star"></i></div>
+           <div>Voto: <i v-for="star in star " class="fa-solid fa-star"></i></div> 
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+
 .card-movie{
     position: relative;
 
     &:hover .info{
         display: block;
-    } 
+    }
 
     .container-img{
         height: 300px;
@@ -99,5 +101,4 @@ export default {
         background-color: rgba(0, 0, 0, 0.85);
     }
 }
-
 </style>

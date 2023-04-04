@@ -15,8 +15,22 @@ export default{
     },
     
     created() {
-        axios.get(this.store.APIcall).then((res) => {
-            console.log(res)
+
+        this.movie = "/movie/popular";
+
+        axios.get(this.store.APIcall +this.movie + this.store.APIkey).then((res) => {
+            console.log(res.data.results);
+
+            this.store.popularMovies = res.data.results;
+        })
+
+        
+        this.series = "/tv/popular";
+
+        axios.get(this.store.APIcall + this.series + this.store.APIkey).then((res) => {
+            console.log(res.data.results);
+
+            this.store.popularSeries = res.data.results;
         })
     },
 
@@ -50,6 +64,7 @@ export default{
         search() {
             this.searchMovie();
             this.searchSeries();
+            this.store.showHome = false;
         }
     }
 }

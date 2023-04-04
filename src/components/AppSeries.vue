@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-     <div class="card-series">
+    <div class="card-series">
         <div class="container-img" >
             <img :src="`${this.store.thumb + card.poster_path}`" alt="">
         </div>

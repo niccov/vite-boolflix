@@ -14,5 +14,13 @@ export const store = reactive({
 
     cardsSeries: [],
 
+    popularMovies: [],
+
+    popularSeries: [],
+
     thumb: 'https://image.tmdb.org/t/p/w342',
+
+    showHome: true,
+
+    
 });
