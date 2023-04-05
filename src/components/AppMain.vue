@@ -65,6 +65,19 @@ export default{
 
     overflow-x: auto;
     overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+     background: rgb(36, 36, 36); 
+    }
+
+    &::-webkit-scrollbar-thumb {
+     background: black; 
+     border-radius: 10px;
+    }
    }
 
    #container-series{
@@ -78,6 +91,19 @@ export default{
 
     overflow-x: auto;
     overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+     background: rgb(36, 36, 36); 
+    }
+
+    &::-webkit-scrollbar-thumb {
+     background: black; 
+     border-radius: 10px;
+    }
    }
 
    
